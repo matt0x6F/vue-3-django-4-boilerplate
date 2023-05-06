@@ -1,10 +1,15 @@
 <template>
-  <NavComp />
-  <router-view/>
+  <div>
+    <NavComp />
+
+    <section class="section">
+      <router-view/>
+    </section>
+  </div> 
 </template>
 
 <script>
-import NavComp from './components/NavComp.vue';
+import NavComp from '@/components/layout/NavComp';
 export default {
     name: "App",
     components: { 
@@ -14,5 +19,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../node_modules/bootstrap';
+//@import '../node_modules/bootstrap';
+@import '../node_modules/bulma';
 </style>
