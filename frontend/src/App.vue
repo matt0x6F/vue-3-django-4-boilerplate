@@ -10,10 +10,21 @@
 
 <script>
 import NavComp from '@/components/layout/NavComp';
+import axios from 'axios';
+
 export default {
     name: "App",
     components: { 
       NavComp 
+  },
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+  
+    if (this.$store.state.token) {
+      axios.defaults.headers.common['Authorization'] = "Token " + this.$store.state.token
+    } else {
+      axios.defaults.headers.common['Authorization'] = ""
+    } 
   }
 }
 </script>
