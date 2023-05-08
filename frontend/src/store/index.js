@@ -4,7 +4,7 @@ export default createStore({
     state: {
         isLoading: false,
         isAuthenticated: false,
-        token: ''
+        token: '',
     },
     mutations: {
         initializeStore(state) {

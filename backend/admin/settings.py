@@ -26,6 +26,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
+    'djoser',
     'products'
 ]
 
@@ -120,5 +128,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-CORS_ORIGIN_ALLOW_ALL = True

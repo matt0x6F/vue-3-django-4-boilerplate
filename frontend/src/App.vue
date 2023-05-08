@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavComp />
-
+    
     <section class="section">
       <router-view/>
     </section>
@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import NavComp from '@/components/layout/NavComp';
-import axios from 'axios';
+import axios from 'axios'
+import NavComp from '@/components/layout/NavComp'
 
 export default {
     name: "App",
