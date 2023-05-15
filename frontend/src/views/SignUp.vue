@@ -15,7 +15,7 @@
                     <div class="field">
                         <label>Password</label>
                         <div class="control">
-                            <input type="password" name="password" class="input" v-model="password">
+                            <input type="password" name="password1" class="input" v-model="password1">
                         </div>
                     </div>
 
@@ -50,34 +50,36 @@
         data() {
             return {
                 username: '',
-                password: '',
+                password1: '',
                 password2: '',
                 errors: []
             }
         },
         methods: {
-            submitForm() {
+            async submitForm() {
                 this.errors = []
 
                 if (this.username === '') {
                     this.errors.push('The username is missing')
                 }
 
-                if (this.password === '') {
+                if (this.password1 === '') {
                     this.errors.push('The password is too short')
                 }
 
-                if (this.password !== this.password2) {
+                if (this.password1 !== this.password2) {
                     this.errors.push('The password are not matching')
                 }
 
                 if (!this.errors.length) {
+                    this.$store.commit('setIsLoading', true)
+                    
                     const formData = {
                         username: this.username,
-                        password: this.password
+                        password: this.password1
                     }
 
-                    axios
+                    await axios
                         .post('/api/v1/users/', formData)
                         .then(response => {
                             toast({
@@ -100,6 +102,8 @@
                                 this.errors.push('Something went wrong. Please try again!')
                             }
                         })
+
+                    this.$store.commit('setIsLoading', false)
                 }
             }
         }
