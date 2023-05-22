@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "vue.volar",
+        "vue.vscode-typescript-vue-plugin",
+        "ms-python.python",
+        "donjayamanne.python-extension-pack",
+        "donjayamanne.python-environment-manager"
+    ]
+}
