@@ -5,6 +5,7 @@ export default createStore({
         isLoading: false,
         isAuthenticated: false,
         token: '',
+        userData: {},
     },
     mutations: {
         initializeStore(state) {
@@ -26,7 +27,13 @@ export default createStore({
         removeToken(state) {
             state.token = ''
             state.isAuthenticated = false
-        }
+        },
+        setUserData(state, user) {
+            state.userData = user
+        },
+        resetUserData(state) {
+            state.userData = {}
+        },
 
     },
     actions: {

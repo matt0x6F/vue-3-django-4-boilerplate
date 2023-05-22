@@ -1,13 +1,13 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import store from '@/store'
 
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
-import DashBoard from '../views/dashboard/DashBoard'
-import MyAccount from '../views/dashboard/MyAccount'
-import Leads from '../views/dashboard/Leads'
-import AddLead from '../views/dashboard/AddLead'
+import DashBoard from '../views/dashboard/DashBoard.vue'
+import MyAccount from '../views/dashboard/MyAccount.vue'
+import Leads from '../views/dashboard/Leads.vue'
+import AddLead from '../views/dashboard/AddLead.vue'
 
 const routes = [
   {
@@ -73,7 +73,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

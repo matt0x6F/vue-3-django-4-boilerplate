@@ -1,40 +1,57 @@
-<template>
-    <div class="container">    
-        <div class="columns is-multiline">
-            <div class="column is-12">
-                <h1 class="title">My Account</h1>
-            </div>
-
-            <div class="column is-12">
-                <button @click="logout()" class="button is-danger">Log out</button>
-
-            </div>
+<template>  
+    <div class="columns is-multiline">
+        <div class="column is-12">
+            <h1 class="title">My Account</h1>
         </div>
-    </div>            
+
+        <div class="column is-12">
+            <button @click="logout()" class="button is-danger">Log out</button>
+        </div>
+    </div>         
 </template>
 
-<script>
+<script setup>
     import axios from 'axios';
-    
-    export default {
-        name: 'MyAccount',
-        methods: {
-            async logout() {
-                await axios
-                    .post('/api/v1/token/logout/')
-                    .then(responde => {
-                        console.log('Logged')
-                    })
-                    .catch(error => {
-                        console.log(JSON.stringify(error))
-                    })
+    import { useStore } from 'vuex';
+    import { useRouter } from 'vue-router';
 
-                axios.defaults.headers.common['Authorization'] = ''
-                localStorage.removeItem('token')
-                this.$store.commit('removeToken')
+    const store = useStore();
+    const router = useRouter();
 
-                this.$router.push('/')
-            }
-        }
+    async function getUserData() {
+        store.commit('setIsLoading', true)
+
+        const userData = await axios
+        .get('/api/v1/users/me/')
+        .then(response => {
+            return response.data
+        })
+        .catch(error => {
+            console.log(JSON.stringify(error))
+            return {}
+        })
+
+        store.commit('setUserData', userData)
+        store.commit('setIsLoading', false)
     }
+    
+    async function logout() {
+        await axios
+            .post('/api/v1/token/logout/')
+            .then(() => {
+                console.log('Logged user out')
+            })
+            .catch(error => {
+                console.log(JSON.stringify(error))
+            })
+
+        axios.defaults.headers.common['Authorization'] = ''
+        localStorage.removeItem('token')
+        store.commit('removeToken')
+        store.commit('resetUserData')
+
+        router.push('/')
+    }
+
+    getUserData()
 </script>

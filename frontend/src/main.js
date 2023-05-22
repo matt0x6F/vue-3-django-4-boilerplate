@@ -6,6 +6,7 @@ import axios from 'axios'
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import "bootstrap/dist/css/bootstrap.css"
+import "@/assets/main.css"
 import "@/assets/bootstrap.bundle.min.js"
 import 'material-icons/iconfont/material-icons.css'
 
