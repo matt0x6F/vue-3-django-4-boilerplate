@@ -1,12 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 
-from rest_framework.routers import DefaultRouter
-
-from .views import LeadViewSet
-
-router = DefaultRouter()
-router.register('leads', LeadViewSet, basename='leads')
+from .views import LeadsAPIView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path("leads", LeadsAPIView.as_view()),
 ]
