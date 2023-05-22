@@ -15,7 +15,7 @@
   </div> 
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { useStore } from 'vuex';
   import axios from 'axios';
 
