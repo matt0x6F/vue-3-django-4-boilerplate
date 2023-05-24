@@ -1183,6 +1183,10 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .-mx-1 {
   margin-left: -0.25rem;
   margin-right: -0.25rem;
@@ -2498,6 +2502,11 @@ input:checked + .toggle-bg {
      object-fit: cover;
 }
 
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
 .p-0 {
   padding: 0px;
 }
@@ -2628,6 +2637,10 @@ input:checked + .toggle-bg {
   padding-top: 0.5rem;
 }
 
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2663,6 +2676,16 @@ input:checked + .toggle-bg {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .font-medium {

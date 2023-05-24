@@ -1,13 +1,15 @@
 <template>  
-    <div class="columns is-multiline">
-        <div class="column is-12">
-            <h1 class="title">My Account</h1>
-        </div>
+  <div class="columns is-multiline">
+    <div class="column is-12">
+      <h1 class="title">
+        My Account
+      </h1>
+    </div>
 
-        <div class="column is-12">
-            <button @click="logout()" class="button is-danger">Log out</button>
-        </div>
-    </div>         
+    <div class="column is-12">
+      <span>Username: {{ store.state.userData.username }}</span>
+    </div>
+  </div>         
 </template>
 
 <script setup>
@@ -33,24 +35,6 @@
 
         store.commit('setUserData', userData)
         store.commit('setIsLoading', false)
-    }
-    
-    async function logout() {
-        await axios
-            .post('/api/v1/token/logout/')
-            .then(() => {
-                console.log('Logged user out')
-            })
-            .catch(error => {
-                console.log(JSON.stringify(error))
-            })
-
-        axios.defaults.headers.common['Authorization'] = ''
-        localStorage.removeItem('token')
-        store.commit('removeToken')
-        store.commit('resetUserData')
-
-        router.push('/')
     }
 
     getUserData()

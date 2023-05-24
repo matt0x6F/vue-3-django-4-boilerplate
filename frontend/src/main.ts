@@ -5,11 +5,16 @@ import store from './store'
 import axios from 'axios'
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
-import "bootstrap/dist/css/bootstrap.css"
+import "flowbite/dist/flowbite.css"
 import "@/assets/main.css"
-import "@/assets/bootstrap.bundle.min.js"
-import 'material-icons/iconfont/material-icons.css'
+
+import { OhVueIcon, addIcons } from "oh-vue-icons"
+import { MdSpacedashboardTwotone, LaAddressBookSolid, MdBusinesscenterTwotone, LaFileInvoiceDollarSolid, OiProject, MdPentagonTwotone } from "oh-vue-icons/icons"
+
+addIcons(MdSpacedashboardTwotone, LaAddressBookSolid, MdBusinesscenterTwotone, LaFileInvoiceDollarSolid, OiProject, MdPentagonTwotone)
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000'
 
-createApp(App).use(store).use(router, axios).mount('#app')
+const app = createApp(App)
+app.component("v-icon", OhVueIcon)
+app.use(store).use(router, axios).mount('#app')
