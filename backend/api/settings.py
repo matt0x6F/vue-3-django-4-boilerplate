@@ -28,7 +28,7 @@ ALLOWED_HOSTS = []
 
 # CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:81"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:81", "http://127.0.0.1:8000"]
 
 # CSRF
 
@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     "corsheaders",
     "djoser",
     "lead.apps.LeadConfig",
+    "companies.apps.CompaniesConfig",
+    "contacts.apps.ContactsConfig",
+    "projects.apps.ProjectsConfig",
 ]
 
 MIDDLEWARE = [
@@ -68,7 +71,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "admin.urls"
+ROOT_URLCONF = "api.urls"
 
 TEMPLATES = [
     {
@@ -86,7 +89,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "admin.wsgi.application"
+WSGI_APPLICATION = "api.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

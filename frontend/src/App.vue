@@ -5,7 +5,7 @@
     <div class="flex container">
       <Sidebar />
       <div class="flex-col flex-grow">
-        <spinner v-if="store.state.isLoading" class="ml-auto mr-auto" size="10" />
+        <spinner v-if="store.state.isLoading" class="ml-auto mr-auto mt-4" size="10" />
 
         <section class="ml-2 mr-2">
           <router-view/>

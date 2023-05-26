@@ -1,7 +1,7 @@
 <template>
     <Navbar>
         <template #logo>
-        <span class="flex flow-row">
+        <span class="flex flow-row text-white dark:text-white">
             <v-icon name="md-pentagon-twotone" class="m-1" scale="2" /> 
             <h1 class="text-4xl">Project Hub</h1>
         </span>

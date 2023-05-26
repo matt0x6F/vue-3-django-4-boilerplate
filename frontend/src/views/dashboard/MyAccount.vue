@@ -15,10 +15,8 @@
 <script setup>
     import axios from 'axios';
     import { useStore } from 'vuex';
-    import { useRouter } from 'vue-router';
 
     const store = useStore();
-    const router = useRouter();
 
     async function getUserData() {
         store.commit('setIsLoading', true)
